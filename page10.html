@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Special Dates</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+      padding-top: 3rem;
+    }
+
+    h1 {
+  font-size: 7rem;
+  font-weight: bolder;
+  font-family: bolder;
+  animation: colorCycle 20s linear infinite;
+  
+}
+
+@keyframes colorCycle {
+  0%   { color: lab(68.92% 31.88 5.79); }
+  20%  { color: lch(19.22% 39.57 359.92); }
+  40%  { color: lab(58.43% 48.28 -13.91); }
+  60%  { color: lab(25.36% 42.4 -21.27); }
+  80%  { color: hsl(350, 75%, 30%); }
+  100% { color: hsl(335, 67%, 57%); }
+}
+
+
+    .container {
+      flex: 1; /* fills vertical space between title and bottom */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem 3.5rem; /* more space vertically and horizontally */
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .btn {
+      padding: 1.5rem;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      animation: shine 4s infinite linear;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      user-select: none;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+    }
+
+    /* Distinct gradients for each button */
+    .btn:nth-child(1) {
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    }
+    .btn:nth-child(2) {
+      background: linear-gradient(45deg, #f9a825, #f06292);
+    }
+    .btn:nth-child(3) {
+      background: linear-gradient(45deg, #7b4397, #dc2430);
+    }
+    .btn:nth-child(4) {
+      background: linear-gradient(45deg, #3a1c71, #d76d77);
+    }
+    .btn:nth-child(5) {
+      background: linear-gradient(45deg, #0f2027, #2c5364);
+    }
+    .btn:nth-child(6) {
+      background: linear-gradient(45deg, #36d1dc, #5b86e5);
+    }
+    .btn:nth-child(7) {
+      background: linear-gradient(45deg, #ff5f6d, #ffc371);
+    }
+    .btn:nth-child(8) {
+      background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    }
+    .btn:nth-child(9) {
+      background: linear-gradient(45deg, #eecda3, #ef629f);
+    }
+
+    @keyframes shine {
+      0% {
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+      }
+      100% {
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    .popup-content {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      position: relative;
+      width: 80%;
+      max-width: 450px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+      font-size: 1.4rem;
+      line-height: 1.5;
+      white-space: pre-line;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #ff6ec4;
+    }
+    .gradient-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.gradient-button:hover {
+  background: linear-gradient(135deg, #7873f5, #ff6ec4);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <h1>Special Dates</h1>
+  <div class="container">
+    <div class="grid">
+      <button class="btn" onclick="showPopup(0)">8 NOVEMBER 2024</button>
+      <button class="btn" onclick="showPopup(1)">16 MARCH 2025</button>
+      <button class="btn" onclick="showPopup(2)">29 MARCH 2025</button>
+      <button class="btn" onclick="showPopup(3)">30 MARCH 2025</button>
+      <button class="btn" onclick="showPopup(4)">30 MARCH 2025</button>
+      <button class="btn" onclick="showPopup(5)">03 APRIL 2025</button>
+      <button class="btn" onclick="showPopup(6)">08 APRIL 2025</button>
+      <button class="btn" onclick="showPopup(7)">18 APRIL 2025</button>
+      <button class="btn" onclick="showPopup(8)">20 APRIL 2025</button>
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close" onclick="hidePopup()">&times;</span>
+      <p id="popup-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const messages = [
+      `8 November 2024 friday ye wo din tha.jis din ap ne zindgi me pehli dfa mujy message kia tha.chahy presentation group k liye kia tha😅😅😅 `,
+      `16 March 2025 ,sunday ka din tha r ye mery liye bht special din tha is din ap ne mujy 1 gift diya tha🙂‍↔ r wo ye tha\n\n🌹🎂 yh ly`,
+      `29 March , saturday ye bht special din tha yrr is din ap ne mujy apna husband kha tha 🙂‍↔😅wo b 3 dfa ap k mess dikhata hun \n\nHusband g bata dy na🙄😒\nHusband g apni harkatain seedhi krly 😒\nHusband g aram Sy Jao free hoky baat krygy😒🙄`,
+      `30 March sunday, yrr is din me pighal gya tha 🫠🫠 sachi ap ko pta is din me jb ap ko kha I love you to ap ne jo kha tha dikhata hun \n\nsame to you ❤`,
+      `30 March sunday, yrr is din me bht zyada khush tha is din ap ne mujy kuch esa bola tha jo mujy bht asha lga tha 🙂‍↔♥dikhata hun \n\nAllah apko b khush rakhy ( myry Sath ) ✨🙃 `,
+      `3 April Thursday yrr is din me bhy bht zyada khush hova tha ap ko pta is din jb me apko I love you♥ kha to ap ne mujy kia kha tha dikahata hun \n\nI love you too❤`,
+      `8 April tuesday, hyeee batmeez is dn to meri jan e nikal di thi me itna khush tha na♥ k intha nhi thi is din ap ne mujy bhla kia kha tha dikhata hun \n\nI love you❤`,
+      `18 April Friday yrr it was tha most special day for me q k is din ap ne mujy kuch dediate kia ♥♥tha dikhata hun\n\n دل کے دریچوں میں اُترتی یہ چاہت، کسی ان دیکھی منزل کی مانند ہے۔ جیسے ہوا میں معلق کوئی خوشبو، جو ہر سو بکھری ہوئی ہے، مگر گرفت میں نہیں آتی۔ یہ وہ راز ہے جو میری پلکوں کی اوٹ میں چمکتا ہے، میری خاموشی میں گنگناتا ہے، اور میری ہر سوچ میں رقص کرتا ہے یہ کوئی عام تعلق نہیں، یہ تو میری ہستی کا وہ حصہ ہے، جو میری ذات سے بھی زیادہ عزیز ہے۔ یہ وہ سکون ہے جو مجھے طوفانوں میں بھی تھامے رکھتا ہے، وہ روشنی ہے جو اندھیروں میں بھی راستہ دکھاتی ہے،اور وہ نغمہ ہے جو میری روح کے تاروں کو چھیڑ کر، ایک لازوال سر بکھیر دیتا ہے۔
+Apky Liy`,
+      `20 April sunday,yrr ye b 1 bht bht special din tha jo mujy hameesha yad rha ga is din ap ne mujy kha tha \n\nتم وہ روشنی ہو جو میری تاریک دنیا کو منور کرتے ہو ۔ جب تم میرے پاس ہوتے ہو، تو وقت تھم سا جاتا ہے، اور صرف تمہاری مسکراہٹ اور تمہاری آواز کی گونج میرے کانوں میں رس گھولتی ہے۔ تمہاری آنکھوں میں مجھے اپنی تقدیر نظر آتی ہے، ایک ایسی تقدیر جس میں خوشی اور محبت کے سوا کچھ نہیں۔ تم میری روح کے ساتھی ہو، میرا سہارا ہو، اور میری زندگی کا سب سے قیمتی اثاثہ ہو۔ تم میری دعا ہو، میری آرزو ہو، اور میری زندگی کا حاصل ہو۔ تمہارے بغیر، یہ دنیا میرے لیے بے رنگ اور بے معنی ہے۔ تم میرے دل کی دھڑکن ہو، اور جب تک یہ دھڑکتی رہے گی، تمہارا نام لیتی رہے گی۔`
+    ];
+
+    function showPopup(index) {
+      const popup = document.getElementById("popup");
+      const text = document.getElementById("popup-text");
+      text.innerText = messages[index];
+      popup.style.display = "flex";
+    }
+
+    function hidePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+  <a href="page11.html" class="gradient-button">Next</a>
+
+</body>
+</html>
